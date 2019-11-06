@@ -1,0 +1,14 @@
+[Unit]
+Description=Mouse wheel volume control when right mouse button is clicked
+After=network.target
+
+[Service]
+Type=simple
+User=hansek
+WorkingDirectory=/home/hansek/projects/wheel-volume
+Environment=PYTHONPATH=/home/hansek/projects/wheel-volume
+ExecStart=DISPLAY=":0" /home/hansek/.envs/wheel-volume/bin/python wheel-volume.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
